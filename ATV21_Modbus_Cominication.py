@@ -4,7 +4,7 @@ import struct
 
 # Seri bağlantıyı aç
 ser = serial.Serial(
-    port='/dev/ttyUSB0',  # USB-RS485 dönüştürücü kullanıyorsanız
+    port='/dev/ttyUSB0',  # USB-RS485 dönüştürücü takılan yer
     baudrate=9600,
     parity=serial.PARITY_NONE,
     stopbits=serial.STOPBITS_ONE,
@@ -30,7 +30,7 @@ def send_modbus_command(device_address, function_code, register_address, value):
     message = struct.pack('>BBHH', device_address, function_code, register_address, value)
     message += modbus_crc(message)  # CRC ekle
     ser.write(message)
-    time.sleep(0.1)  # Cihazın yanıt vermesi için bekleyin
+    time.sleep(0.1)  # Cihazın yanıt vermesi için bekleme
     response = ser.read(8)  # Cihazdan gelen yanıtı oku
     return response
 
