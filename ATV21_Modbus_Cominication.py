@@ -1,3 +1,16 @@
+
+"""
+ATV21'in MODBUS ayarlarını doğru yapılandırın:
+Modbus Adresi: 1
+Baud Rate: 9600
+Parity: None
+Stop Bit: 1
+
+
+
+"""
+
+
 import serial
 import time
 import struct
